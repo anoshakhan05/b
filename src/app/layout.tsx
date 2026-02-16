@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google"; // Changed imports
+import { Manrope } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-manrope",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "VELORIA | Luxury Bags Boutique",
-  description: "Premium handcrafted leather bags for the modern woman.",
+  title: "Noir Threads | Premium Apparel",
+  description: "Experience the epitome of luxury with Noir Threads exclusive collection.",
 };
-
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 
 export default function RootLayout({
   children,
@@ -28,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="antialiased font-sans bg-primary text-text-primary selection:bg-accent-gold selection:text-primary flex flex-col min-h-screen">
+    <html lang="en" className="dark">
+      <body
+        className={`${manrope.variable} antialiased bg-primary text-text-primary min-h-screen flex flex-col`}
+      >
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow pt-[80px]">
           {children}
         </main>
         <Footer />
